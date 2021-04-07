@@ -1,4 +1,13 @@
+/* vars */
+:root {
+  --main-color: #900c3f;
+}
+/* end vars */
+
 /* reset bootstrap style */
+.navbar-inverse {
+  background-color: var(--main-color);
+}
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -13,3 +22,22 @@
   text-align: center;
 }
 /* end reset */
+
+/* main style */
+.top__balance {
+  font-size: 30px;
+  font-weight: 600;
+  background-color: var(--main-color);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.balance__number {
+  font-size: 35px;
+}
+.balance__currency {
+  font-size: 24px;
+}
+
+/* end main style */

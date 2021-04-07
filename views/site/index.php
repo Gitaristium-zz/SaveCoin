@@ -6,12 +6,12 @@ $this->title = 'SaveCoin';
 ?>
 <div class="site-index">
 
-  <div class="jumbotron">
-    <h1>Congratulations!</h1>
-
-    <p class="lead">You have successfully created your Yii-powered application.</p>
-
-    <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+  <div class="top">
+    <div class="top__inner">
+      <div class="top__balance balance">
+        Текущий баланс: <span class="balance__currency">&#8381</span><span class="balance__number">18000</span>
+      </div>
+    </div>
   </div>
 
   <div class="body-content">
