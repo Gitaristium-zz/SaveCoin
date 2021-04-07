@@ -1,8 +1,8 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '2.0.41',
-    'version' => '2.0.41.0',
+    'pretty_version' => '1.0.0+no-version-set',
+    'version' => '1.0.0.0',
     'aliases' => 
     array (
     ),
@@ -28,6 +28,15 @@
       array (
       ),
       'reference' => '68b0d231a13201eb14acd3dc84e51543d16e5f7e',
+    ),
+    'bower-asset/font-awesome' => 
+    array (
+      'pretty_version' => '5.15.3',
+      'version' => '5.15.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd79d85c3fad85ad1885e87ed558f4afd6fce8289',
     ),
     'bower-asset/inputmask' => 
     array (
@@ -747,8 +756,8 @@
     ),
     'yiisoft/yii2-app-basic' => 
     array (
-      'pretty_version' => '2.0.41',
-      'version' => '2.0.41.0',
+      'pretty_version' => '1.0.0+no-version-set',
+      'version' => '1.0.0.0',
       'aliases' => 
       array (
       ),

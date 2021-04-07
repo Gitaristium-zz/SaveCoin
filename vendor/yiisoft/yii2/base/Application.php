@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
@@ -102,7 +103,7 @@ abstract class Application extends Module
     /**
      * @var string the application name.
      */
-    public $name = 'My Application';
+    public $name = '<i class="fab fa-bitcoin"></i> SaveCoin';
     /**
      * @var string the charset currently used for the application.
      */
