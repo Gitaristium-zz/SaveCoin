@@ -233,6 +233,15 @@ private static $installed = array (
       ),
       'reference' => 'ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1',
     ),
+    'fortawesome/font-awesome' => 
+    array (
+      'pretty_version' => '5.15.3',
+      'version' => '5.15.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd79d85c3fad85ad1885e87ed558f4afd6fce8289',
+    ),
     'guzzlehttp/psr7' => 
     array (
       'pretty_version' => '1.8.1',
@@ -437,6 +446,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '120b605dfeb996808c31b6477290a714d356e822',
+    ),
+    'rmrevin/yii2-fontawesome' => 
+    array (
+      'pretty_version' => '3.7.0',
+      'version' => '3.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4a1c6b60773ffdbac87de3e6ae1d97ec07cc81e1',
     ),
     'sebastian/code-unit-reverse-lookup' => 
     array (

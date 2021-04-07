@@ -1,7 +1,15 @@
+/* reset bootstrap style */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
 .navbar-brand i {
-  font-size: 20px;
-  color: #fff;
+  width: 25px;
+  font-size: 25px;
+  margin-right: 8px;
+  margin-top: -2px;
 }
-body {
-  background-color: red;
+.navbar-nav {
+  text-align: center;
 }
+/* end reset */
