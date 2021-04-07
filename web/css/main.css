@@ -24,18 +24,38 @@
 /* end reset */
 
 /* main style */
-.top__balance {
-  font-size: 30px;
-  font-weight: 600;
-  background-color: var(--main-color);
+.income,
+.spend,
+.balance {
+  text-align: center;
   color: white;
   padding: 15px 30px;
   border-radius: 3px;
-  display: inline-block;
+  margin-bottom: 15px;
 }
+.income {
+  background-color: #ffc300;
+}
+.spend {
+  background-color: #c70039;
+}
+.balance {
+  background-color: var(--main-color);
+}
+
+.income__text,
+.spend__text,
+.balance__text {
+  display: block;
+  font-size: 18px;
+}
+.income__number,
+.spend__number,
 .balance__number {
   font-size: 35px;
 }
+.income__currency,
+.spend__currency,
 .balance__currency {
   font-size: 24px;
 }

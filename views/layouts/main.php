@@ -40,7 +40,7 @@ AppAsset::register($this);
     echo Nav::widget([
       'options' => ['class' => 'navbar-nav navbar-right'],
       'items' => [
-        ['label' => '₽', 'url' => ['/site/contact']],
+        ['label' => '₽', 'url' => ['/site/']],
         ['label' => 'Фильтр', 'url' => ['/site/contact']],
       ],
     ]);

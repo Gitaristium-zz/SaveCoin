@@ -7,10 +7,32 @@ $this->title = 'SaveCoin';
 <div class="site-index">
 
   <div class="top">
-    <div class="top__inner">
-      <div class="top__balance balance">
-        Текущий баланс: <span class="balance__currency">&#8381</span><span class="balance__number">18000</span>
+    <div class="row">
+
+      <div class="top__inner col-lg-4">
+        <div class="top__income  income ">
+          <span class="income__text">Доход:</span>
+          <span class="income__currency">&#8381</span>
+          <span class="income__number">45000</span>
+        </div>
       </div>
+
+      <div class="top__inner col-lg-4">
+        <div class="top__spend spend">
+          <span class="spend__text">Расход:</span>
+          <span class="spend__currency">&#8381</span>
+          <span class="spend__number">28500</span>
+        </div>
+      </div>
+
+      <div class="top__inner col-lg-4">
+        <div class="top__balance balance">
+          <span class="balance__text">Остаток:</span>
+          <span class="balance__currency">&#8381</span>
+          <span class="balance__number">16500</span>
+        </div>
+      </div>
+
     </div>
   </div>
 
