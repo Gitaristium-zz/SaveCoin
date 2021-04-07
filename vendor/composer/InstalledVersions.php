@@ -53,15 +53,6 @@ private static $installed = array (
       ),
       'reference' => '68b0d231a13201eb14acd3dc84e51543d16e5f7e',
     ),
-    'bower-asset/font-awesome' => 
-    array (
-      'pretty_version' => '5.15.3',
-      'version' => '5.15.3.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'd79d85c3fad85ad1885e87ed558f4afd6fce8289',
-    ),
     'bower-asset/inputmask' => 
     array (
       'pretty_version' => '3.3.11',
