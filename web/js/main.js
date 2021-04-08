@@ -1,5 +1,6 @@
 document.getElementById('date').valueAsDate = new Date();
 
+
 $('form').on('beforeSubmit', function () {
   var data = $(this).serialize();
   $.ajax({

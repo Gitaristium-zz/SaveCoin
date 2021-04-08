@@ -7,6 +7,15 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'SaveCoin';
 ?>
+
+<?php if (Yii::$app->session->hasFlash('success')) : ?>
+<?php if (Yii::$app->session->getFlash('success')) : ?>
+<p>Данные формы прошли валидацию</p>
+<?php else : ?>
+<p>Данные формы не прошли валидацию</p>
+<?php endif; ?>
+<?php endif; ?>
+
 <div class="site-index">
 
   <div class="top">
@@ -38,11 +47,12 @@ $this->title = 'SaveCoin';
 
     </div>
   </div>
+
   <div class="stats">
     <div class="row">
       <div class="col-lg-4">
 
-        <?php $form = ActiveForm::begin(['id' => 'addcoin-form']); ?>
+        <?php $form = ActiveForm::begin(['id' => 'savecoin-form']); ?>
 
         <?= $form->field($model, 'sum')->textInput(['type' => 'number']) ?>
 
@@ -51,7 +61,7 @@ $this->title = 'SaveCoin';
         <?= $form->field($model, 'date')->textInput(['type' => 'date', 'id' => 'date']) ?>
 
         <div class="form-group">
-          <?= Html::submitButton('Добавить', ['class' => 'btn btn-success', 'name' => 'contact-button']) ?>
+          <?= Html::submitButton('Добавить', ['class' => 'btn btn-success']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>
@@ -61,7 +71,6 @@ $this->title = 'SaveCoin';
   </div>
 
   <div class=" body-content">
-
     <div class="row">
       <div class="col-lg-4">
         <h2>Heading</h2>
