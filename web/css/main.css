@@ -60,4 +60,9 @@
   font-size: 24px;
 }
 
+.stats form {
+  padding: 15px;
+  border-radius: 3px;
+  background-color: #ffc300;
+}
 /* end main style */

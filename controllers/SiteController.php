@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\AddcoinForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Response;
@@ -60,7 +61,21 @@ class SiteController extends AppController
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        // return $this->render('index');
+
+        $model = new AddcoinForm();
+        // if ($model->load(Yii::$app->request->post())) {
+        //     return $this->refresh();
+        // }
+        if (\Yii::$app->request->isAjax) {
+            return 'Запрос принят!';
+        }
+        if ($model->load(\Yii::$app->request->post())) {
+            var_dump($model);
+            return $this->refresh();
+        }
+
+        return $this->render('index', compact('model'));
     }
 
     /**

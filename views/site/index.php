@@ -2,6 +2,9 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+
 $this->title = 'SaveCoin';
 ?>
 <div class="site-index">
@@ -35,8 +38,29 @@ $this->title = 'SaveCoin';
 
     </div>
   </div>
+  <div class="stats">
+    <div class="row">
+      <div class="col-lg-4">
 
-  <div class="body-content">
+        <?php $form = ActiveForm::begin(['id' => 'addcoin-form']); ?>
+
+        <?= $form->field($model, 'sum')->textInput(['type' => 'number']) ?>
+
+        <?= $form->field($model, 'cat')->textInput(['autofocus' => true]) ?>
+
+        <?= $form->field($model, 'date')->textInput(['type' => 'date', 'id' => 'date']) ?>
+
+        <div class="form-group">
+          <?= Html::submitButton('Добавить', ['class' => 'btn btn-success', 'name' => 'contact-button']) ?>
+        </div>
+
+        <?php ActiveForm::end(); ?>
+
+      </div>
+    </div>
+  </div>
+
+  <div class=" body-content">
 
     <div class="row">
       <div class="col-lg-4">
