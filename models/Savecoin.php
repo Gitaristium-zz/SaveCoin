@@ -10,8 +10,6 @@ use yii\db\ActiveRecord;
  */
 class Savecoin extends ActiveRecord
 {
-    public $sum, $cat, $date;
-
     public function attributeLabels()
     {
         return [

@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Response;
 use yii\web\Controller;
 use app\models\Savecoin;
+use app\models\Stats;
 
 class SiteController extends Controller
 {
@@ -20,28 +21,17 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $stats = Stats::find()->all();
+
         $model = new Savecoin();
-        // если пришли post-данные...
         if ($model->load(Yii::$app->request->post())) {
             // ...проверяем эти данные
             if ($model->save()) {
-                // данные прошли валидацию, отмечаем этот факт
-                Yii::$app->session->setFlash(
-                    'success',
-                    true
-                );
-                // перезагружаем страницу, чтобы избежать повтороной отправки формы
                 return $this->refresh();
             } else {
-                // данные не прошли валидацию, отмечаем этот факт
-                Yii::$app->session->setFlash(
-                    'success',
-                    false
-                );
-                // не перезагружаем страницу, чтобы сохранить пользовательские данные
             }
         }
 
-        return $this->render('index', ['model' => $model]);
+        return $this->render('index', ['model' => $model, 'stats' => $stats]);
     }
 }
