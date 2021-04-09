@@ -147,6 +147,16 @@ $this->title = 'SaveCoin';
     </div>
   </div>
   <!-- end .stats -->
+
+  <!-- charts -->
+  <div class="charts">
+    <div class="row">
+      <div class="col-lg12">
+        <div id="container"></div>
+      </div>
+    </div>
+  </div>
+  <!-- end charts -->
 </div>
 <!-- modal -->
 <div class="modal">

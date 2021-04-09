@@ -194,6 +194,9 @@ h3 {
 /* end add item carts */
 
 /* stats */
+.stats {
+  margin-bottom: 50px;
+}
 .stats__title {
   text-align: center;
 }

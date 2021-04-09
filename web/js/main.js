@@ -39,3 +39,69 @@ $('.stats__link').click(function () {
 $('.modal__close').click(function () {
   $('.modal').removeClass('active');
 });
+
+// charts
+Highcharts.chart('container', {
+
+  title: {
+    text: 'Динамика остатка'
+  },
+
+  subtitle: {
+    text: ''
+  },
+
+  yAxis: {
+    title: {
+      text: null
+    }
+  },
+
+  xAxis: {
+    categories: [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday'
+    ],
+  },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 1
+    }
+  },
+
+  series: [{
+    name: 'Баланс',
+    data: [500, 2000, 3500, 10000, 15000, 25000, 25000, 25000, 34554]
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
