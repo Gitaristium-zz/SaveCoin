@@ -18,7 +18,25 @@ $this->title = 'SaveCoin';
           <span class="income__text">Доход:</span>
           <span class="income__currency">&#8381</span>
           <span class="income__number">45000</span>
+          <div class="income__add">
+            <div class="income__add-inner">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
         </div>
+
+        <div id='add-income'>
+          <?php $form = ActiveForm::begin(['id' => 'savecoin']); ?>
+          <?= $form->field($model, 'sum')->textInput(['type' => 'number', 'id' => 'sum']) ?>
+          <?= $form->field($model, 'cat')->textInput(['autofocus' => true]) ?>
+          <?= $form->field($model, 'date')->textInput(['type' => 'date', 'id' => 'date']) ?>
+          <div class="form-group">
+            <?= Html::submitButton('Добавить', ['class' => 'btn btn-primary']) ?>
+          </div>
+          <?php ActiveForm::end(); ?>
+        </div>
+
       </div>
 
       <div class="top__inner col-lg-4">
@@ -26,7 +44,25 @@ $this->title = 'SaveCoin';
           <span class="spend__text">Расход:</span>
           <span class="spend__currency">&#8381</span>
           <span class="spend__number">28500</span>
+          <div class="spend__add">
+            <div class="spend__add-inner">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
         </div>
+
+        <div id='add-spend'>
+          <?php $form = ActiveForm::begin(['id' => 'savecoin']); ?>
+          <?= $form->field($model, 'sum')->textInput(['type' => 'number', 'id' => 'sum']) ?>
+          <?= $form->field($model, 'cat')->textInput(['autofocus' => true]) ?>
+          <?= $form->field($model, 'date')->textInput(['type' => 'date', 'id' => 'date']) ?>
+          <div class="form-group">
+            <?= Html::submitButton('Добавить', ['class' => 'btn btn-primary']) ?>
+          </div>
+          <?php ActiveForm::end(); ?>
+        </div>
+
       </div>
 
       <div class="top__inner col-lg-4">
@@ -38,27 +74,7 @@ $this->title = 'SaveCoin';
       </div>
 
     </div>
-  </div>
-
-  <div class="stats">
     <div class="row">
-      <div class="col-lg-4">
-
-        <?php $form = ActiveForm::begin(['id' => 'savecoin']); ?>
-
-        <?= $form->field($model, 'sum')->textInput(['type' => 'number', 'id' => 'sum']) ?>
-
-        <?= $form->field($model, 'cat')->textInput(['autofocus' => true]) ?>
-
-        <?= $form->field($model, 'date')->textInput(['type' => 'date', 'id' => 'date']) ?>
-
-        <div class="form-group">
-          <?= Html::submitButton('Добавить', ['class' => 'btn btn-success']) ?>
-        </div>
-
-        <?php ActiveForm::end(); ?>
-
-      </div>
       <div class="col-lg-4">
         <ul>
           <?foreach($stats as $note):?>
@@ -69,9 +85,10 @@ $this->title = 'SaveCoin';
           </li>
           <?endforeach;?>
         </ul>
-
       </div>
     </div>
   </div>
+
+
 
 </div>

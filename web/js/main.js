@@ -16,3 +16,12 @@ $('form').on('beforeSubmit', function () {
   });
   return false;
 });
+
+$('.income__add').click(function () {
+  $(this).toggleClass('active');
+  $('#add-income').toggleClass('active');
+});
+$('.spend__add').click(function () {
+  $(this).toggleClass('active');
+  $('#add-spend').toggleClass('active');
+});

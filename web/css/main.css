@@ -1,6 +1,9 @@
 /* vars */
 :root {
   --main-color: #900c3f;
+  --add-color: #ffc300;
+  --spend-color: #c70039;
+  --shadow: 0px 1px 5px 0px rgba(34, 60, 80, 0.2);
 }
 /* end vars */
 
@@ -24,6 +27,10 @@
 /* end reset */
 
 /* main style */
+/* top plates */
+.top__inner {
+  position: relative;
+}
 .income,
 .spend,
 .balance {
@@ -32,12 +39,14 @@
   padding: 15px 30px;
   border-radius: 3px;
   margin-bottom: 15px;
+  position: relative;
+  box-shadow: var(--shadow);
 }
 .income {
-  background-color: #ffc300;
+  background-color: var(--add-color);
 }
 .spend {
-  background-color: #c70039;
+  background-color: var(--spend-color);
 }
 .balance {
   background-color: var(--main-color);
@@ -59,10 +68,78 @@
 .balance__currency {
   font-size: 24px;
 }
+.income__add,
+.spend__add {
+  font-size: 0;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  right: 25px;
+  bottom: 0;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.1s;
+}
+.income__add-inner,
+.spend__add-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.income__add span,
+.spend__add span {
+  position: absolute;
+  transition: 0.1s;
+}
+.income__add span:nth-child(1),
+.spend__add span:nth-child(1) {
+  width: 30px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.income__add span:nth-child(2),
+.spend__add span:nth-child(2) {
+  width: 3px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.income__add:hover span,
+.spend__add:hover span {
+  background-color: #daf7a6;
+}
+.income__add.active,
+.spend__add.active {
+  transform: rotate(45deg);
+}
+/* end top plates */
 
-.stats form {
+/* add item carts */
+#add-item,
+#spend-item {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 -15px;
+}
+#add-income form {
   padding: 15px;
   border-radius: 3px;
-  background-color: #ffc300;
+  background-color: var(--add-color);
+  box-shadow: var(--shadow);
 }
+#add-spend form {
+  padding: 15px;
+  border-radius: 3px;
+  background-color: var(--spend-color);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+/* end add item carts */
 /* end main style */
