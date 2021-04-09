@@ -23,6 +23,9 @@ AppAsset::register($this);
   <?php $this->registerCsrfMetaTags() ?>
   <title><?= Html::encode($this->title) ?></title>
   <?php $this->head() ?>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 </head>
 
 <body>
@@ -40,8 +43,8 @@ AppAsset::register($this);
     echo Nav::widget([
       'options' => ['class' => 'navbar-nav navbar-right'],
       'items' => [
-        ['label' => 'Валюта: ₽', 'url' => ['/site/']],
-        ['label' => 'Фильтр', 'url' => ['/site/contact']],
+        // ['label' => 'Валюта: ₽', 'url' => ['/site/']],
+        // ['label' => 'Фильтр', 'url' => ['/site/contact']],
       ],
     ]);
     NavBar::end();

@@ -24,6 +24,8 @@ class SiteController extends Controller
         $income = Stats::find()->where(['act' => 0])->orderBy('sum DESC')->limit(10)->all();
         $spend = Stats::find()->where(['act' => 1])->orderBy('sum DESC')->limit(10)->all();
         $all = Stats::find()->orderBy('date DESC')->limit(10)->all();
+        $incomeStat = Stats::find()->where(['act' => 0])->all();
+        $spendStat = Stats::find()->where(['act' => 1])->all();
 
         $model = new Savecoin();
         if ($model->load(Yii::$app->request->post())) {
@@ -34,6 +36,6 @@ class SiteController extends Controller
             }
         }
 
-        return $this->render('index', ['model' => $model, 'income' => $income, 'spend' => $spend, 'all' => $all]);
+        return $this->render('index', ['model' => $model, 'income' => $income, 'spend' => $spend, 'all' => $all, 'incomeStat' => $incomeStat, 'spendStat' => $spendStat]);
     }
 }
