@@ -9,7 +9,6 @@ $this->title = 'SaveCoin';
 ?>
 
 <div class="site-index">
-
   <div class="top">
     <div class="row">
 
@@ -76,13 +75,16 @@ $this->title = 'SaveCoin';
       </div>
 
     </div>
+  </div>
+  <!-- end .top -->
+  <div class="stats">
     <div class="row">
-      <div class="stats stats-income col-lg-4">
+      <div class="stats-item stats-income col-lg-4">
         <div class="stats__inner">
           <ul>
             <?foreach($income as $note):?>
             <li>
-              <a href="#" data-id="<?= $note->id ?>">
+              <a href="#" data-id="<?= $note->id ?>" data-act="<?= $note->act ?>">
                 <span><?= $note->sum ?></span>
                 <span><?= $note->cat ?></span>
                 <span><?= $note->date ?></span>
@@ -92,12 +94,27 @@ $this->title = 'SaveCoin';
           </ul>
         </div>
       </div>
-      <div class="stats stats-spend col-lg-4">
+      <div class="stats-item stats-spend col-lg-4">
         <div class="stats__inner">
           <ul>
             <?foreach($spend as $note):?>
             <li>
-              <a href="#" data-id="<?= $note->id ?>">
+              <a href="#" data-id="<?= $note->id ?>" data-act="<?= $note->act ?>">
+                <span><?= $note->sum ?></span>
+                <span><?= $note->cat ?></span>
+                <span><?= $note->date ?></span>
+              </a>
+            </li>
+            <?endforeach;?>
+          </ul>
+        </div>
+      </div>
+      <div class="stats-item stats-all col-lg-4">
+        <div class="stats__inner">
+          <ul>
+            <?foreach($all as $note):?>
+            <li>
+              <a href="#" data-id="<?= $note->id ?>" data-act="<?= $note->act ?>">
                 <span><?= $note->sum ?></span>
                 <span><?= $note->cat ?></span>
                 <span><?= $note->date ?></span>
@@ -108,7 +125,5 @@ $this->title = 'SaveCoin';
         </div>
       </div>
     </div>
-
-
-
   </div>
+  <!-- end .stats -->

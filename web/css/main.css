@@ -187,7 +187,7 @@ a:hover {
 /* end add item carts */
 
 /* stats */
-.stats__inner li a {
+.stats-item li a {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -197,23 +197,24 @@ a:hover {
   margin-bottom: 5px;
   transition: 0.1s;
 }
-.stats-income li a {
+.stats-item li a[data-act="0"] {
   border: 1px solid var(--add-color);
 }
-.stats-spend li a {
+.stats-item li a[data-act="1"] {
   border: 1px solid var(--spend-color);
 }
-.stats-income li a:hover {
+
+.stats-item li a[data-act="0"]:hover {
   background-color: var(--add-hover-color);
 }
-.stats-spend li a:hover {
+.stats-item li a[data-act="1"]:hover {
   background-color: var(--spend-hover-color);
 }
-.stats-income li span:first-child::before {
+.stats-item li a[data-act="0"] span:first-child::before {
   content: "₽";
   margin-right: 3px;
 }
-.stats-spend li span:first-child::before {
+.stats-item li a[data-act="1"] span:first-child::before {
   content: "₽ -";
 }
 /* end stats */
