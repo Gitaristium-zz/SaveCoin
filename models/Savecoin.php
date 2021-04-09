@@ -22,7 +22,7 @@ class Savecoin extends ActiveRecord
     public function rules()
     {
         return [
-            [['sum', 'cat', 'date'], 'required', 'message' => 'Поле обязательно для заполнения'],
+            [['sum', 'cat', 'date', 'act'], 'required', 'message' => 'Поле обязательно для заполнения'],
         ];
     }
 }

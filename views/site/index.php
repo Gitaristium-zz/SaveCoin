@@ -31,6 +31,7 @@ $this->title = 'SaveCoin';
           <?= $form->field($model, 'sum')->textInput(['type' => 'number', 'id' => 'sum']) ?>
           <?= $form->field($model, 'cat')->textInput(['autofocus' => true]) ?>
           <?= $form->field($model, 'date')->textInput(['type' => 'date', 'id' => 'date-income']) ?>
+          <?= $form->field($model, 'act')->textInput(['type' => 'number', 'value' => '0']) ?>
           <div class="form-group">
             <?= Html::submitButton('Добавить', ['class' => 'btn btn-primary']) ?>
           </div>
@@ -57,6 +58,7 @@ $this->title = 'SaveCoin';
           <?= $form->field($model, 'sum')->textInput(['type' => 'number', 'id' => 'sum']) ?>
           <?= $form->field($model, 'cat')->textInput(['autofocus' => true]) ?>
           <?= $form->field($model, 'date')->textInput(['type' => 'date', 'id' => 'date-spend']) ?>
+          <?= $form->field($model, 'act')->textInput(['type' => 'number', 'value' => '1']) ?>
           <div class="form-group">
             <?= Html::submitButton('Добавить', ['class' => 'btn btn-primary']) ?>
           </div>
@@ -75,31 +77,38 @@ $this->title = 'SaveCoin';
 
     </div>
     <div class="row">
-      <div class="col-lg-4">
-        <ul>
-          <?foreach($income as $note):?>
-          <li>
-            <span><?= $note->sum ?></span>
-            <span><?= $note->cat ?></span>
-            <span><?= $note->date ?></span>
-          </li>
-          <?endforeach;?>
-        </ul>
+      <div class="stats stats-income col-lg-4">
+        <div class="stats__inner">
+          <ul>
+            <?foreach($income as $note):?>
+            <li>
+              <a href="#" data-id="<?= $note->id ?>">
+                <span><?= $note->sum ?></span>
+                <span><?= $note->cat ?></span>
+                <span><?= $note->date ?></span>
+              </a>
+            </li>
+            <?endforeach;?>
+          </ul>
+        </div>
       </div>
-      <div class="col-lg-4">
-        <ul>
-          <?foreach($spend as $note):?>
-          <li>
-            <span><?= $note->sum ?></span>
-            <span><?= $note->cat ?></span>
-            <span><?= $note->date ?></span>
-          </li>
-          <?endforeach;?>
-        </ul>
+      <div class="stats stats-spend col-lg-4">
+        <div class="stats__inner">
+          <ul>
+            <?foreach($spend as $note):?>
+            <li>
+              <a href="#" data-id="<?= $note->id ?>">
+                <span><?= $note->sum ?></span>
+                <span><?= $note->cat ?></span>
+                <span><?= $note->date ?></span>
+              </a>
+            </li>
+            <?endforeach;?>
+          </ul>
+        </div>
       </div>
     </div>
+
+
+
   </div>
-
-
-
-</div>

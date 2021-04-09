@@ -3,6 +3,9 @@
   --main-color: #900c3f;
   --add-color: #ffc300;
   --spend-color: #c70039;
+  --main-hover-color: #c786a0;
+  --add-hover-color: #ffe180;
+  --spend-hover-color: #e3809c;
   --shadow: 0px 1px 5px 0px rgba(34, 60, 80, 0.2);
 }
 /* end vars */
@@ -24,9 +27,33 @@
 .navbar-nav {
   text-align: center;
 }
+.field-savecoin-act {
+  display: none;
+}
 /* end reset */
 
 /* main style */
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
 /* top plates */
 .top__inner {
   position: relative;
@@ -109,9 +136,11 @@
   border-radius: 3px;
   background-color: #fff;
 }
-.income__add:hover span,
+.income__add:hover span {
+  background-color: var(--add-hover-color);
+}
 .spend__add:hover span {
-  background-color: #daf7a6;
+  background-color: var(--spend-hover-color);
 }
 .income__add.active,
 .spend__add.active {
@@ -148,8 +177,44 @@
   padding: 15px;
   border-radius: 3px;
   background-color: var(--spend-color);
-  color: #fff;
+  color: #fff !important;
   box-shadow: var(--shadow);
 }
+#add-spend .control-label,
+#add-spend .help-block {
+  color: #fff !important;
+}
 /* end add item carts */
+
+/* stats */
+.stats__inner li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  width: 100%;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  transition: 0.1s;
+}
+.stats-income li a {
+  border: 1px solid var(--add-color);
+}
+.stats-spend li a {
+  border: 1px solid var(--spend-color);
+}
+.stats-income li a:hover {
+  background-color: var(--add-hover-color);
+}
+.stats-spend li a:hover {
+  background-color: var(--spend-hover-color);
+}
+.stats-income li span:first-child::before {
+  content: "₽";
+  margin-right: 3px;
+}
+.stats-spend li span:first-child::before {
+  content: "₽ -";
+}
+/* end stats */
 /* end main style */
