@@ -21,7 +21,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $stats = Stats::find()->all();
+        $income = Stats::find()->where(['act' => 0])->all();
+        $spend = Stats::find()->where(['act' => 1])->all();
 
         $model = new Savecoin();
         if ($model->load(Yii::$app->request->post())) {
@@ -32,6 +33,6 @@ class SiteController extends Controller
             }
         }
 
-        return $this->render('index', ['model' => $model, 'stats' => $stats]);
+        return $this->render('index', ['model' => $model, 'income' => $income, 'spend' => $spend]);
     }
 }

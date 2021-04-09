@@ -1,4 +1,5 @@
-document.getElementById('date').valueAsDate = new Date();
+document.getElementById('date-income').valueAsDate = new Date();
+document.getElementById('date-spend').valueAsDate = new Date();
 
 
 $('form').on('beforeSubmit', function () {
@@ -20,8 +21,12 @@ $('form').on('beforeSubmit', function () {
 $('.income__add').click(function () {
   $(this).toggleClass('active');
   $('#add-income').toggleClass('active');
+  $('#add-spend').removeClass('active');
+  $('.spend__add').removeClass('active');
 });
 $('.spend__add').click(function () {
   $(this).toggleClass('active');
   $('#add-spend').toggleClass('active');
+  $('#add-income').removeClass('active');
+  $('.income__add').removeClass('active');
 });
