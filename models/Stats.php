@@ -10,6 +10,6 @@ class Stats extends ActiveRecord
 
   public static function tableName()
   {
-    return 'savecoin';
+    return 'coinadd';
   }
 }

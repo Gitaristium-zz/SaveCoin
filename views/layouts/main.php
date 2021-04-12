@@ -14,7 +14,7 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="<?= Yii::$app->language ?>">
 
 <head>
   <meta charset="UTF-8">
@@ -23,7 +23,8 @@ AppAsset::register($this);
   <?php $this->registerCsrfMetaTags() ?>
   <title><?= Html::encode($this->title) ?></title>
   <?php $this->head() ?>
-  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src=" https://code.highcharts.com/highcharts.js">
+  </script>
   <script src="https://code.highcharts.com/modules/series-label.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -46,7 +47,8 @@ AppAsset::register($this);
       'options' => ['class' => 'navbar-nav navbar-right'],
       'items' => [
         // ['label' => 'Валюта: ₽', 'url' => ['/site/']],
-        // ['label' => 'Фильтр', 'url' => ['/site/contact']],
+        ['label' => 'Главная', 'url' => ['/site/index']],
+        ['label' => 'Категории', 'url' => ['/site/categories']],
       ],
     ]);
     NavBar::end();
