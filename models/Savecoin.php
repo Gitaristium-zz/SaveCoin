@@ -7,6 +7,11 @@ use yii\db\ActiveRecord;
 
 class Savecoin extends ActiveRecord
 {
+    public static function tableName()
+    {
+        return 'coinadd';
+    }
+
     public function attributeLabels()
     {
         return [
@@ -19,7 +24,8 @@ class Savecoin extends ActiveRecord
     public function rules()
     {
         return [
-            [['sum', 'cat', 'date', 'act'], 'required', 'message' => 'Поле обязательно для заполнения'],
+            ['id', 'trim'],
+            [['sum', 'cat', 'date', 'act'], 'required'],
         ];
     }
 }

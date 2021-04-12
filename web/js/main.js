@@ -1,6 +1,6 @@
 // auto date into input
-document.getElementById('date-income').valueAsDate = new Date();
-document.getElementById('date-spend').valueAsDate = new Date();
+// document.getElementById('date-income').valueAsDate = new Date();
+// document.getElementById('date-spend').valueAsDate = new Date();
 
 // plates btn
 $('.income__add').click(function () {
@@ -24,84 +24,32 @@ $('.stats__link').click(function () {
   $('#add-spend').removeClass('active');
   $('.income__add').removeClass('active');
   $('.spend__add').removeClass('active');
-  $('.modal').addClass('active');
+  $('.modal-edit').addClass('active');
   var $id = $(this).attr('data-id'),
     $act = $(this).attr('data-act'),
-    $sum = $(this).children('span:nth-child(1)').text(),
-    $cat = $(this).children('span:nth-child(2)').text(),
-    $date = $(this).children('span:nth-child(3)').attr('data-date');
+    $sum = $(this).children('.stats__currency').text(),
+    $catId = $(this).children('.stats__cat-id').text(),
+    $date = $(this).children('.stats__date').attr('data-date');
+  $catName = $(this).children('.stats__cat-name').text();
   $('.modal #savecoin-id').val($id);
   $('.modal #savecoin-sum').val($sum);
-  $('.modal #savecoin-cat').val($cat);
+  $('.modal #savecoin-cat').val($catId);
   $('.modal #savecoin-date').val($date);
   $('.modal #savecoin-act').val($act);
+  $('.modal #categoriesspend-id').val($id);
+  $('.modal #categoriesspend-cat_name').val($catName);
 });
 $('.modal__close').click(function () {
   $('.modal').removeClass('active');
 });
 
-// charts
-Highcharts.chart('container', {
 
-  title: {
-    text: 'Динамика остатка'
-  },
-
-  subtitle: {
-    text: ''
-  },
-
-  yAxis: {
-    title: {
-      text: null
-    }
-  },
-
-  xAxis: {
-    categories: [
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-      'Sunday'
-    ],
-  },
-
-  legend: {
-    layout: 'vertical',
-    align: 'right',
-    verticalAlign: 'middle'
-  },
-
-  plotOptions: {
-    series: {
-      label: {
-        connectorAllowed: false
-      },
-      pointStart: 1
-    }
-  },
-
-  series: [{
-    name: 'Баланс',
-    data: [500, 2000, 3500, 10000, 15000, 25000, 25000, 25000, 34554]
-  }],
-
-  responsive: {
-    rules: [{
-      condition: {
-        maxWidth: 500
-      },
-      chartOptions: {
-        legend: {
-          layout: 'horizontal',
-          align: 'center',
-          verticalAlign: 'bottom'
-        }
-      }
-    }]
-  }
-
+// modal categories
+$('#btn-add-categogy-add').click(function () {
+  $('.modal').removeClass('active');
+  $('#add-categogy-add').addClass('active');
+});
+$('#btn-add-categogy-spend').click(function () {
+  $('.modal').removeClass('active');
+  $('#add-categogy-spend').addClass('active');
 });

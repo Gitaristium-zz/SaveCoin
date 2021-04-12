@@ -30,7 +30,7 @@ $this->title = 'SaveCoin';
           </div>
         </div>
 
-        <div id='add-income'>
+        <div id='add-income' class="add-income">
           <?php $form = ActiveForm::begin(['id' => 'savecoin']); ?>
           <h3>Записать новый доход</h3>
           <?= $form->field($model, 'sum')->textInput(['type' => 'number']) ?>
@@ -64,7 +64,7 @@ $this->title = 'SaveCoin';
           </div>
         </div>
 
-        <div id='add-spend'>
+        <div id='add-spend' class="add-spend">
           <?php $form = ActiveForm::begin(['id' => 'savecoin']); ?>
           <h3>Записать новый расход</h3>
           <?= $form->field($model, 'sum')->textInput(['type' => 'number']) ?>
@@ -98,14 +98,15 @@ $this->title = 'SaveCoin';
     <div class="row">
       <div class="stats-item stats-income col-lg-4">
         <div class="stats__inner">
-          <h4 class="stats__title">ТОП поступлений</h4>
+          <h4 class="stats__title">ТОП-5 поступлений</h4>
           <ul>
             <?foreach($income as $note):?>
             <li>
               <a class="stats__link" href="#" data-id="<?= $note->id ?>" data-act="<?= $note->act ?>">
-                <span><?= $note->sum ?></span>
-                <span><?= $note->cat ?></span>
-                <span data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
+                <span class="stats__currency"><?= $note->sum ?></span>
+                <span class="stats__cat-id"><?= $note->cat ?></span>
+                <span class="stats__date"
+                  data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
               </a>
             </li>
             <?endforeach;?>
@@ -114,14 +115,15 @@ $this->title = 'SaveCoin';
       </div>
       <div class="stats-item stats-spend col-lg-4">
         <div class="stats__inner">
-          <h4 class="stats__title">ТОП трат</h4>
+          <h4 class="stats__title">ТОП-5 трат</h4>
           <ul>
             <?foreach($spend as $note):?>
             <li>
               <a class="stats__link" href="#" data-id="<?= $note->id ?>" data-act="<?= $note->act ?>">
-                <span><?= $note->sum ?></span>
-                <span><?= $note->cat ?></span>
-                <span data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
+                <span class="stats__currency"><?= $note->sum ?></span>
+                <span class="stats__cat-id"><?= $note->cat ?></span>
+                <span class="stats__date"
+                  data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
               </a>
             </li>
             <?endforeach;?>
@@ -130,14 +132,15 @@ $this->title = 'SaveCoin';
       </div>
       <div class="stats-item stats-all col-lg-4">
         <div class="stats__inner">
-          <h4 class="stats__title">10 последних операций</h4>
-          <ul>
+          <h4 class="stats__title">История операций</h4>
+          <ul class="stats__history-list">
             <?foreach($all as $note):?>
             <li>
               <a class="stats__link" href="#" data-id="<?= $note->id ?>" data-act="<?= $note->act ?>">
-                <span><?= $note->sum ?></span>
-                <span><?= $note->cat ?></span>
-                <span data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
+                <span class="stats__currency"><?= $note->sum ?></span>
+                <span class="stats__cat-id"><?= $note->cat ?></span>
+                <span class="stats__date"
+                  data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
               </a>
             </li>
             <?endforeach;?>
@@ -162,7 +165,7 @@ $this->title = 'SaveCoin';
 </div>
 
 <!-- modal -->
-<div class="modal">
+<div class="modal modal-edit">
   <div class="modal__inner">
     <h3>Редактирование записи</h3>
     <a class="modal__close" href="#">
