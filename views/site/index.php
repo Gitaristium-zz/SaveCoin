@@ -110,11 +110,11 @@ $this->title = 'SaveCoin';
                   <span>
                     <?php $url = Url::toRoute(['site/edit', 'id' => $note->id, 'edit' => 'add']); ?>
                     <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
-                      <i class="fas fa-edit"></i>
+                      <i class="far fa-edit"></i>
                     </a>
                     <?php $url = Url::toRoute(['site/delete', 'id' => $note->id]); ?>
                     <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
-                      <i class="fas fa-trash-alt"></i>
+                      <i class="far fa-trash-alt"></i>
                     </a>
                   </span>
               </div>
@@ -138,11 +138,11 @@ $this->title = 'SaveCoin';
                   <span>
                     <?php $url = Url::toRoute(['site/edit', 'id' => $note->id, 'edit' => 'spend']); ?>
                     <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
-                      <i class="fas fa-edit"></i>
+                      <i class="far fa-edit"></i>
                     </a>
                     <?php $url = Url::toRoute(['site/delete', 'id' => $note->id]); ?>
                     <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
-                      <i class="fas fa-trash-alt"></i>
+                      <i class="far fa-trash-alt"></i>
                     </a>
                   </span>
               </div>
@@ -166,11 +166,11 @@ $this->title = 'SaveCoin';
                   <span>
                     <?php $url = Url::toRoute(['site/edit', 'id' => $note->id, 'edit' => 'add']); ?>
                     <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
-                      <i class="fas fa-edit"></i>
+                      <i class="far fa-edit"></i>
                     </a>
                     <?php $url = Url::toRoute(['site/delete', 'id' => $note->id]); ?>
                     <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
-                      <i class="fas fa-trash-alt"></i>
+                      <i class="far fa-trash-alt"></i>
                     </a>
                   </span>
               </div>

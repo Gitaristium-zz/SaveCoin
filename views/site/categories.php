@@ -10,11 +10,11 @@ use yii\widgets\Pjax;
 $this->title = 'SaveCoin';
 ?>
 <?php if (Yii::$app->session->hasFlash('success')) : ?>
-<?php if (Yii::$app->session->getFlash('success')) : ?>
-<p>Данные формы прошли валидацию</p>
-<?php else : ?>
-<p>Данные формы не прошли валидацию</p>
-<?php endif; ?>
+  <?php if (Yii::$app->session->getFlash('success')) : ?>
+    <p>Данные формы прошли валидацию</p>
+  <?php else : ?>
+    <p>Данные формы не прошли валидацию</p>
+  <?php endif; ?>
 <?php endif; ?>
 
 <div class="site-index">
@@ -31,11 +31,11 @@ $this->title = 'SaveCoin';
                 <span>
                   <?php $url = Url::toRoute(['site/edit', 'id' => $cat->id, 'edit' => 'cat-add']); ?>
                   <a href="<?= $url; ?>" data-id="<?= $cat->id ?>">
-                    <i class="fas fa-edit"></i>
+                    <i class="far fa-edit"></i>
                   </a>
                   <?php $url = Url::toRoute(['site/delete', 'id' => $cat->id]); ?>
                   <a href="<?= $url; ?>" data-id="<?= $cat->id ?>">
-                    <i class="fas fa-trash-alt"></i>
+                    <i class="far fa-trash-alt"></i>
                   </a>
                 </span>
               </div>
@@ -56,11 +56,11 @@ $this->title = 'SaveCoin';
                 <span>
                   <?php $url = Url::toRoute(['site/edit', 'id' => $cat->id, 'edit' => 'cat-spend']); ?>
                   <a href="<?= $url; ?>" data-id="<?= $cat->id ?>">
-                    <i class="fas fa-edit"></i>
+                    <i class="far fa-edit"></i>
                   </a>
                   <?php $url = Url::toRoute(['site/delete', 'id' => $cat->id]); ?>
                   <a href="<?= $url; ?>" data-id="<?= $cat->id ?>">
-                    <i class="fas fa-trash-alt"></i>
+                    <i class="far fa-trash-alt"></i>
                   </a>
                 </span>
               </div>
