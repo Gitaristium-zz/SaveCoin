@@ -27,4 +27,9 @@ class CategoriesSpend extends ActiveRecord
       ['cat_name', 'required'],
     ];
   }
+
+  public function getCoinSpend()
+  {
+    return $this->hasMany(CoinSpend::className(), ['cat_id' => 'id']);
+  }
 }

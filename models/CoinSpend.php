@@ -28,4 +28,9 @@ class CoinSpend extends ActiveRecord
             [['sum', 'cat_id', 'date'], 'required'],
         ];
     }
+
+    public function getCategoriesSpend()
+    {
+        return $this->hasOne(CategoriesSpend::className(), ['id' => 'cat_id']);
+    }
 }

@@ -103,7 +103,7 @@ $this->title = 'SaveCoin';
             <li>
               <div class="stats-item__linkbox stats-item__linkbox--add">
                 <span class="stats-item__currency"><?= $note->sum ?></span>
-                <span class="stats-item__cat-id"><?= $note->cat_id ?></span>
+                <span class="stats-item__cat-id"><?= $note->categoriesAdd->cat_name ?></span>
                 <span>
                   <span class="stats-item__date"
                     data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
@@ -131,7 +131,7 @@ $this->title = 'SaveCoin';
             <li>
               <div class="stats-item__linkbox stats-item__linkbox--spend">
                 <span class="stats-item__currency"><?= $note->sum ?></span>
-                <span class="stats-item__cat-id"><?= $note->cat_id ?></span>
+                <span class="stats-item__cat-id"><?= $note->categoriesSpend->cat_name ?></span>
                 <span>
                   <span class="stats-item__date"
                     data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
@@ -159,7 +159,7 @@ $this->title = 'SaveCoin';
             <li>
               <div class="stats-item__linkbox">
                 <span class="stats-item__currency"><?= $note->sum ?></span>
-                <span class="stats-item__cat-id"><?= $note->cat_id ?></span>
+                <span class="stats-item__cat-id"><?= $note->categoriesAdd->cat_name ?></span>
                 <span>
                   <span class="stats-item__date"
                     data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
