@@ -32,12 +32,11 @@ $this->title = 'SaveCoin';
         </div>
 
         <div id='add-income' class="add-income">
-          <?php $form = ActiveForm::begin(['id' => 'savecoin']); ?>
+          <?php $formAdd = ActiveForm::begin(); ?>
           <h3>Записать новый доход</h3>
-          <?= $form->field($model, 'sum')->textInput(['type' => 'number']) ?>
-          <?= $form->field($model, 'cat')->textInput(['autofocus' => true]) ?>
-          <?= $form->field($model, 'date')->textInput(['type' => 'date', 'id' => 'date-income']) ?>
-          <?= $form->field($model, 'act')->textInput(['type' => 'number', 'value' => '0']) ?>
+          <?= $formAdd->field($modelIncome, 'sum')->textInput(['type' => 'number']) ?>
+          <?= $formAdd->field($modelIncome, 'cat_id')->textInput(['type' => 'number', 'autofocus' => true]) ?>
+          <?= $formAdd->field($modelIncome, 'date')->textInput(['type' => 'date', 'id' => 'date-income']) ?>
           <div class="form-group">
             <?= Html::submitButton('Добавить', ['class' => 'btn btn-primary']) ?>
           </div>
@@ -66,12 +65,11 @@ $this->title = 'SaveCoin';
         </div>
 
         <div id='add-spend' class="add-spend">
-          <?php $form = ActiveForm::begin(['id' => 'savecoin']); ?>
+          <?php $formSpend = ActiveForm::begin(); ?>
           <h3>Записать новый расход</h3>
-          <?= $form->field($model, 'sum')->textInput(['type' => 'number']) ?>
-          <?= $form->field($model, 'cat')->textInput(['autofocus' => true]) ?>
-          <?= $form->field($model, 'date')->textInput(['type' => 'date', 'id' => 'date-spend']) ?>
-          <?= $form->field($model, 'act')->textInput(['type' => 'number', 'value' => '1']) ?>
+          <?= $formSpend->field($modelSpend, 'sum')->textInput(['type' => 'number']) ?>
+          <?= $formSpend->field($modelSpend, 'cat_id')->textInput(['type' => 'number', 'autofocus' => true]) ?>
+          <?= $formSpend->field($modelSpend, 'date')->textInput(['type' => 'date', 'id' => 'date-spend']) ?>
           <div class="form-group">
             <?= Html::submitButton('Добавить', ['class' => 'btn btn-primary']) ?>
           </div>
@@ -105,7 +103,7 @@ $this->title = 'SaveCoin';
             <li>
               <div class="stats-item__linkbox stats-item__linkbox--add">
                 <span class="stats-item__currency"><?= $note->sum ?></span>
-                <span class="stats-item__cat-id"><?= $note->cat ?></span>
+                <span class="stats-item__cat-id"><?= $note->cat_id ?></span>
                 <span>
                   <span class="stats-item__date"
                     data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
@@ -133,7 +131,7 @@ $this->title = 'SaveCoin';
             <li>
               <div class="stats-item__linkbox stats-item__linkbox--spend">
                 <span class="stats-item__currency"><?= $note->sum ?></span>
-                <span class="stats-item__cat-id"><?= $note->cat ?></span>
+                <span class="stats-item__cat-id"><?= $note->cat_id ?></span>
                 <span>
                   <span class="stats-item__date"
                     data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
@@ -157,11 +155,11 @@ $this->title = 'SaveCoin';
         <div class="stats-item__inner">
           <h4 class="stats-item__title">История операций</h4>
           <ul class="stats-item__history-list">
-            <?foreach($all as $note):?>
+            <?foreach($income as $note):?>
             <li>
               <div class="stats-item__linkbox">
                 <span class="stats-item__currency"><?= $note->sum ?></span>
-                <span class="stats-item__cat-id"><?= $note->cat ?></span>
+                <span class="stats-item__cat-id"><?= $note->cat_id ?></span>
                 <span>
                   <span class="stats-item__date"
                     data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
@@ -199,7 +197,7 @@ $this->title = 'SaveCoin';
 </div>
 
 <!-- modal -->
-<div class="modal modal-edit">
+<!-- <div class="modal modal-edit">
   <div class="modal__inner">
     <h3>Редактирование записи</h3>
     <a class="modal__close" href="#">
@@ -209,17 +207,16 @@ $this->title = 'SaveCoin';
       </div>
     </a>
     <div id='edit'>
-      <?php $form = ActiveForm::begin(['id' => 'savecoin']); ?>
-      <?= $form->field($model, 'id')->textInput(['type' => 'number']) ?>
-      <?= $form->field($model, 'sum')->textInput(['type' => 'number']) ?>
-      <?= $form->field($model, 'cat')->textInput(['autofocus' => true]) ?>
-      <?= $form->field($model, 'date')->textInput(['type' => 'date']) ?>
-      <?= $form->field($model, 'act')->textInput(['type' => 'number']) ?>
+      <?php $formEdit = ActiveForm::begin(['id' => 'savecoin']); ?>
+      <?= $formEdit->field($modelIncome, 'id')->textInput(['type' => 'number']) ?>
+      <?= $formEdit->field($modelIncome, 'sum')->textInput(['type' => 'number']) ?>
+      <?= $formEdit->field($modelIncome, 'cat_id')->textInput(['type' => 'number', 'autofocus' => true]) ?>
+      <?= $formEdit->field($modelIncome, 'date')->textInput(['type' => 'date']) ?>
       <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
       </div>
       <?php ActiveForm::end(); ?>
     </div>
   </div>
-</div>
+</div> -->
 <!-- end modal -->

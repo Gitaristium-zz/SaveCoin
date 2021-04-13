@@ -27,4 +27,9 @@ class CategoriesAdd extends ActiveRecord
       ['cat_name', 'required'],
     ];
   }
+
+  public function getCoinAdd()
+  {
+    return $this->hasMany(CoinAdd::className(), ['cat_id' => 'id']);
+  }
 }

@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 use yii\db\ActiveRecord;
 
-class Savecoin extends ActiveRecord
+class CoinAdd extends ActiveRecord
 {
     public static function tableName()
     {
@@ -16,7 +16,7 @@ class Savecoin extends ActiveRecord
     {
         return [
             'sum' => 'Сумма',
-            'cat' => 'Категория',
+            'cat_id' => 'Категория',
             'date' => 'Дата',
         ];
     }
@@ -25,7 +25,11 @@ class Savecoin extends ActiveRecord
     {
         return [
             ['id', 'trim'],
-            [['sum', 'cat', 'date', 'act'], 'required'],
+            [['sum', 'cat_id', 'date'], 'required'],
         ];
+    }
+    public function getCategoriesAdd()
+    {
+        return $this->hasOne(CategoriesAdd::className(), ['id' => 'cat_id']);
     }
 }

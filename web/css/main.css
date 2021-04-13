@@ -220,8 +220,10 @@ h3 {
   color: #fff;
   margin-left: 5px;
   transition: 0.1s;
+  font-size: 0;
 }
 .stats-item__linkbox:hover a {
+  font-size: inherit;
   opacity: 1;
 }
 .stats-item__linkbox--add {
