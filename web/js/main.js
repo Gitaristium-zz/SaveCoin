@@ -19,7 +19,7 @@ $('.spend__add').click(function () {
 });
 
 // click to edit
-$('.stats__link').click(function () {
+$('.stats-item__link').click(function () {
   $('#add-income').removeClass('active');
   $('#add-spend').removeClass('active');
   $('.income__add').removeClass('active');
@@ -27,10 +27,10 @@ $('.stats__link').click(function () {
   $('.modal-edit').addClass('active');
   var $id = $(this).attr('data-id'),
     $act = $(this).attr('data-act'),
-    $sum = $(this).children('.stats__currency').text(),
-    $catId = $(this).children('.stats__cat-id').text(),
-    $date = $(this).children('.stats__date').attr('data-date');
-  $catName = $(this).children('.stats__cat-name').text();
+    $sum = $(this).children('.stats-item__currency').text(),
+    $catId = $(this).children('.stats-item__cat-id').text(),
+    $date = $(this).children('.stats-item__date').attr('data-date');
+  $catName = $(this).children('.stats-item__cat-name').text();
   $('.modal #savecoin-id').val($id);
   $('.modal #savecoin-sum').val($sum);
   $('.modal #savecoin-cat').val($catId);
@@ -39,9 +39,14 @@ $('.stats__link').click(function () {
   $('.modal #categoriesspend-id').val($id);
   $('.modal #categoriesspend-cat_name').val($catName);
 });
+$('.link-edit').click(function () {
+  var $catNameEdit = $('.edit-catname').text();
+  $(this).attr("href", "site/edit&id=" + $id + "&cat_name=" + $catNameEdit);
+});
 $('.modal__close').click(function () {
   $('.modal').removeClass('active');
 });
+
 
 
 // modal categories

@@ -4,6 +4,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Url;
 
 $this->title = 'SaveCoin';
 ?>
@@ -97,51 +98,84 @@ $this->title = 'SaveCoin';
   <div class="stats">
     <div class="row">
       <div class="stats-item stats-income col-lg-4">
-        <div class="stats__inner">
-          <h4 class="stats__title">ТОП-5 поступлений</h4>
+        <div class="stats-item__inner">
+          <h4 class="stats-item__title">ТОП-5 поступлений</h4>
           <ul>
             <?foreach($income as $note):?>
             <li>
-              <a class="stats__link" href="#" data-id="<?= $note->id ?>" data-act="<?= $note->act ?>">
-                <span class="stats__currency"><?= $note->sum ?></span>
-                <span class="stats__cat-id"><?= $note->cat ?></span>
-                <span class="stats__date"
-                  data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
-              </a>
+              <div class="stats-item__linkbox stats-item__linkbox--add">
+                <span class="stats-item__currency"><?= $note->sum ?></span>
+                <span class="stats-item__cat-id"><?= $note->cat ?></span>
+                <span>
+                  <span class="stats-item__date"
+                    data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
+                  <span>
+                    <?php $url = Url::toRoute(['site/edit', 'id' => $note->id, 'edit' => 'add']); ?>
+                    <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <?php $url = Url::toRoute(['site/delete', 'id' => $note->id]); ?>
+                    <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
+                  </span>
+              </div>
             </li>
             <?endforeach;?>
           </ul>
         </div>
       </div>
       <div class="stats-item stats-spend col-lg-4">
-        <div class="stats__inner">
-          <h4 class="stats__title">ТОП-5 трат</h4>
+        <div class="stats-item__inner">
+          <h4 class="stats-item__title">ТОП-5 трат</h4>
           <ul>
             <?foreach($spend as $note):?>
             <li>
-              <a class="stats__link" href="#" data-id="<?= $note->id ?>" data-act="<?= $note->act ?>">
-                <span class="stats__currency"><?= $note->sum ?></span>
-                <span class="stats__cat-id"><?= $note->cat ?></span>
-                <span class="stats__date"
-                  data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
-              </a>
+              <div class="stats-item__linkbox stats-item__linkbox--spend">
+                <span class="stats-item__currency"><?= $note->sum ?></span>
+                <span class="stats-item__cat-id"><?= $note->cat ?></span>
+                <span>
+                  <span class="stats-item__date"
+                    data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
+                  <span>
+                    <?php $url = Url::toRoute(['site/edit', 'id' => $note->id, 'edit' => 'spend']); ?>
+                    <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <?php $url = Url::toRoute(['site/delete', 'id' => $note->id]); ?>
+                    <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
+                  </span>
+              </div>
             </li>
             <?endforeach;?>
           </ul>
         </div>
       </div>
       <div class="stats-item stats-all col-lg-4">
-        <div class="stats__inner">
-          <h4 class="stats__title">История операций</h4>
-          <ul class="stats__history-list">
+        <div class="stats-item__inner">
+          <h4 class="stats-item__title">История операций</h4>
+          <ul class="stats-item__history-list">
             <?foreach($all as $note):?>
             <li>
-              <a class="stats__link" href="#" data-id="<?= $note->id ?>" data-act="<?= $note->act ?>">
-                <span class="stats__currency"><?= $note->sum ?></span>
-                <span class="stats__cat-id"><?= $note->cat ?></span>
-                <span class="stats__date"
-                  data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
-              </a>
+              <div class="stats-item__linkbox">
+                <span class="stats-item__currency"><?= $note->sum ?></span>
+                <span class="stats-item__cat-id"><?= $note->cat ?></span>
+                <span>
+                  <span class="stats-item__date"
+                    data-date="<?= $note->date ?>"><?= $ruDate = date("d.m.Y", strtotime($note->date)); ?></span>
+                  <span>
+                    <?php $url = Url::toRoute(['site/edit', 'id' => $note->id, 'edit' => 'add']); ?>
+                    <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <?php $url = Url::toRoute(['site/delete', 'id' => $note->id]); ?>
+                    <a href="<?= $url; ?>" data-id="<?= $note->id ?>">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
+                  </span>
+              </div>
             </li>
             <?endforeach;?>
           </ul>

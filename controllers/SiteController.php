@@ -38,11 +38,12 @@ class SiteController extends Controller
             }
         }
 
-        return $this->render('index', ['model' => $model, 'income' => $income, 'spend' => $spend, 'all' => $all, 'incomeStat' => $incomeStat, 'spendStat' => $spendStat]);
+        return $this->render('index', compact('model', 'income', 'spend', 'all', 'incomeStat', 'spendStat'));
     }
+
     public function actionCategories()
     {
-
+        $id = 1;
         $modelAdd = new CategoriesAdd();
         if ($modelAdd->load(Yii::$app->request->post())) {
             if ($modelAdd->save()) {
@@ -59,8 +60,6 @@ class SiteController extends Controller
         }
 
 
-
-
         //списки
         $catsAdd = CategoriesAdd::find()->orderBy('cat_name ASC')->all();
         $catsSpend = CategoriesSpend::find()->orderBy('cat_name ASC')->all();
@@ -72,13 +71,30 @@ class SiteController extends Controller
 
         return $this->render('categories', compact('modelAdd', 'modelSpend', 'catsAdd', 'catsSpend'));
     }
-    public function actionEdit($id)
+
+    public function actionEdit($id, $edit)
     {
+        $edit = Yii::$app->request->get('edit');
         //редактирование
         if (!ctype_digit($id)) {
             return $this->redirect(['site/categories']);
         }
-        $modelEdit = CategoriesSpend::findOne($id);
+
+        if ($edit == 'cat-add') {
+            $modelEdit = CategoriesAdd::findOne($id);
+        } else {
+            if ($edit == 'cat-spend') {
+                $modelEdit = CategoriesSpend::findOne($id);
+            } else {
+                if ($edit == 'add') {
+                    $modelEdit = Stats::findOne($id);
+                } else {
+                    $modelEdit = Stats::findOne($id);
+                }
+            }
+        }
+
+
         // если пришли post-данные
         if ($modelEdit->load(Yii::$app->request->post())) {
             // проверяем и сохраняем эти данные
@@ -92,8 +108,10 @@ class SiteController extends Controller
                 false
             );
         }
+
         return $this->render('edit', compact('modelEdit'));
     }
+
     public function actionDelete($id)
     {
         if (!ctype_digit($id)) {
