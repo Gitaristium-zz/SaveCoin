@@ -4,6 +4,8 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Url;
+use yii\widgets\Pjax;
 
 $this->title = 'SaveCoin';
 ?>
@@ -17,7 +19,8 @@ $this->title = 'SaveCoin';
           <ul>
             <?foreach($catsAdd as $cat):?>
             <li>
-              <a class="stats__link" href="#" data-id="<?= $cat->id ?>" data-act="0">
+              <?php $url = Url::toRoute(['site/edit', 'id' => $cat->id]); ?>
+              <a class="stats__link" href="<?= $url; ?>" data-id="<?= $cat->id ?>" data-act="0">
                 <span class="stats__cat-name"><?= $cat->cat_name ?></span>
               </a>
             </li>
@@ -32,7 +35,8 @@ $this->title = 'SaveCoin';
           <ul>
             <?foreach($catsSpend as $cat):?>
             <li>
-              <a class="stats__link" href="#" data-id="<?= $cat->id ?>" data-act="1">
+              <?php $url = Url::toRoute(['site/edit', 'id' => $cat->id]); ?>
+              <a class="stats__link" href="<?= $url; ?>" data-id="<?= $cat->id ?>" data-act="1">
                 <span class="stats__cat-name"><?= $cat->cat_name ?></span>
               </a>
             </li>
@@ -102,6 +106,7 @@ $this->title = 'SaveCoin';
       </div>
     </a>
     <div>
+      <?php Pjax::begin(); ?>
       <?php $formEdit = ActiveForm::begin(['id' => 'categories-spend']); ?>
       <?= $formEdit->field($modelSpend, 'id')->textInput(['type' => 'number']) ?>
       <?= $formEdit->field($modelSpend, 'cat_name')->textInput(['autofocus' => true]) ?>
@@ -109,6 +114,7 @@ $this->title = 'SaveCoin';
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
       </div>
       <?php ActiveForm::end(); ?>
+      <?php Pjax::end(); ?>
     </div>
   </div>
 </div>

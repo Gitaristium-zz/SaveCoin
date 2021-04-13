@@ -58,13 +58,49 @@ class SiteController extends Controller
             }
         }
 
+
+
+
+        //списки
         $catsAdd = CategoriesAdd::find()->orderBy('cat_name ASC')->all();
         $catsSpend = CategoriesSpend::find()->orderBy('cat_name ASC')->all();
-        $catsEdit = CategoriesSpend::find()->asArray()->all();
+        // $catId = 1;
+        // $catsEdit = CategoriesSpend::find()->where('id = ' . $catId)->all();
         // echo '<pre>';
         // print_r($catsEdit);
         // echo '</pre>';
 
-        return $this->render('categories', compact('modelAdd', 'modelSpend', 'catsAdd', 'catsSpend', 'catsEdit'));
+        return $this->render('categories', compact('modelAdd', 'modelSpend', 'catsAdd', 'catsSpend'));
+    }
+    public function actionEdit($id)
+    {
+        //редактирование
+        if (!ctype_digit($id)) {
+            return $this->redirect(['site/categories']);
+        }
+        $modelEdit = CategoriesSpend::findOne($id);
+        // если пришли post-данные
+        if ($modelEdit->load(Yii::$app->request->post())) {
+            // проверяем и сохраняем эти данные
+            if ($modelEdit->update()) {
+                // данные прошли валидацию и записаны в БД
+                return $this->redirect(['site/categories']);
+            }
+            // данные не прошли валидацию
+            Yii::$app->session->setFlash(
+                'success',
+                false
+            );
+        }
+        return $this->render('edit', compact('modelEdit'));
+    }
+    public function actionDelete($id)
+    {
+        if (!ctype_digit($id)) {
+            return $this->redirect(['site/categories']);
+        }
+        $modelDelete = CategoriesSpend::findOne($id);
+        $modelDelete->delete();
+        return $this->redirect(['site/categories']);
     }
 }
